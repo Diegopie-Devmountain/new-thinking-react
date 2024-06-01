@@ -1,9 +1,13 @@
-// import { useEffect } from 'react';
+import { useState } from 'react';
 import CardText from './CardText';
 import CardTitle from './CardTitle';
 import { Close, Pencil } from './Icons';
 
 export default function Card(props) {
+
+  const [isEditable, setIsEditable] = useState(false);
+
+  console.log(isEditable);
 
   const { workshopImage, workshopShortDescription, workshopDescription, workshopName, id } = props.data;
 
@@ -23,11 +27,11 @@ export default function Card(props) {
             src={workshopImage}
             alt="lorem picusm placeholder" loading="lazy"
           />
-          <CardTitle workshopName={workshopName} id={id} />
+          <CardTitle workshopName={workshopName} id={id} isEditable={isEditable}/>
         </div>
         <CardText workshopShortDescription={workshopShortDescription} />
       </div>
-      <button className='App-Icons'>
+      <button onClick={() => setIsEditable(true)} className='App-Icons'>
         <Pencil width='1.5rem' />
       </button>
       <button className='App-Icons'>

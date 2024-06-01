@@ -2,8 +2,14 @@
 export default function CardText(props) {
 
   return (
-    <p>
-      {props.workshopShortDescription}
-    </p>
+    <>
+      {props.isEditable ?
+        <input />
+        :
+        <p>
+          {props.workshopShortDescription}
+        </p>
+      }
+    </>
   )
 }
