@@ -1,4 +1,6 @@
 // import { useEffect } from 'react';
+import CardText from './CardText';
+import CardTitle from './CardTitle';
 import { Close, Pencil } from './Icons';
 
 export default function Card(props) {
@@ -21,11 +23,9 @@ export default function Card(props) {
             src={workshopImage}
             alt="lorem picusm placeholder" loading="lazy"
           />
-          <h4>{workshopName} {id + 1}</h4>
+          <CardTitle workshopName={workshopName} id={id} />
         </div>
-        <p>
-          {workshopShortDescription}
-        </p>
+        <CardText workshopShortDescription={workshopShortDescription} />
       </div>
       <button className='App-Icons'>
         <Pencil width='1.5rem' />
