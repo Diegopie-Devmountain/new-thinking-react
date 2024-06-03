@@ -79,6 +79,10 @@
   font-size: 1.2rem;
 }
 
+.App-Card-Body input {
+  width: 100%;
+}
+
 .App-Card-Body p {
   margin-top: 0.5rem;
   font-size: 0.9rem;

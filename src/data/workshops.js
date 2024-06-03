@@ -50,3 +50,27 @@ const topicData = {
 };
 
 export default topicData;
+
+
+
+
+// // Find the index of the object with id 3
+// const indexToUpdate = topicData.categoryData.findIndex(item => item.id === 3);
+
+// // If indexToUpdate is not -1 (meaning it was found)
+// if (indexToUpdate !== -1) {
+//   // Update the object at that index
+//   topicData.categoryData[indexToUpdate] = {
+//     ...topicData.categoryData[indexToUpdate], // Preserve other properties
+//     // Update properties as needed
+//     workshopName: "Updated Name",
+//     workshopDescription: "Updated Description",
+//     workshopShortDescription: "Updated Short Description",
+//     workshopImage: "https://example.com/updated-image.jpg",
+//   };
+
+//   // Now topicData has been updated
+//   console.log(topicData);
+// } else {
+//   console.log("Object with id 3 not found in the array.");
+// }

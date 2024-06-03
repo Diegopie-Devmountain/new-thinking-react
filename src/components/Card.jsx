@@ -7,8 +7,6 @@ export default function Card(props) {
 
   const [isEditable, setIsEditable] = useState(false);
 
-  console.log(isEditable);
-
   const { workshopImage, workshopShortDescription, workshopDescription, workshopName, id } = props.data;
 
   // useEffect(()=>{
@@ -27,14 +25,19 @@ export default function Card(props) {
             src={workshopImage}
             alt="lorem picusm placeholder" loading="lazy"
           />
-          <CardTitle workshopName={workshopName} id={id} isEditable={isEditable}/>
+          <CardTitle workshopName={workshopName} id={id} isEditable={isEditable} />
         </div>
-        <CardText workshopShortDescription={workshopShortDescription} />
+        <CardText workshopShortDescription={workshopShortDescription} isEditable={isEditable} />
       </div>
-      <button onClick={() => setIsEditable(true)} className='App-Icons'>
-        <Pencil width='1.5rem' />
-      </button>
-      <button className='App-Icons'>
+      {
+        isEditable ?
+          <button className='App-Icons' onClick={() => setIsEditable(false)}>Save</button>
+          :
+          <button onClick={() => setIsEditable(true)} className='App-Icons'>
+            <Pencil width='1.5rem' />
+          </button>
+      }
+      <button className='App-Icons' onClick={() => props.deleteCard(id)}>
         <Close width='1.5rem' />
       </button>
     </article>
