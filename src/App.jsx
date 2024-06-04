@@ -13,7 +13,14 @@ export default function App() {
         <img src='https://picsum.photos/id/237/300/300' />
       </header>
       <section className='App-Glide-Container'>
-        <h3>Category</h3>
+        <header>
+          <h3>Category Name</h3>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" style={{ width: '1.5rem', height: '1.5rem' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </button>
+        </header>
         <Glider
           draggable
           hasArrows
