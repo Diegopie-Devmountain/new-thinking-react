@@ -1,11 +1,11 @@
 // import { useEffect } from 'react';
 import CardText from './CardText';
 import CardTitle from './CardTitle';
-import { Close, Pencil } from './Icons';
+import { Delete, Pencil } from './Icons';
 
 export default function Card(props) {
 
-  const { workshopImage, workshopShortDescription, workshopDescription, workshopName, id } = props.data;
+  const { workshopImage, workshopShortDescription, workshopName, id } = props.data;
 
   // useEffect(()=>{
   //   // this aint working so skip for now
@@ -17,23 +17,20 @@ export default function Card(props) {
 
     <article className='App-Card-Wrapper'>
       <div className='App-Card-Body'>
-        <div className="text-center">
-          <img
-            className="App-Item-Card-Img"
-            src={workshopImage}
-            alt="lorem picusm placeholder" loading="lazy"
-          />
-          <CardTitle workshopName={workshopName} id={id} />
-        </div>
-        <CardText workshopShortDescription={workshopShortDescription} />
+        <img
+          className="App-Item-Card-Img"
+          src={workshopImage}
+          alt="lorem picusm placeholder" loading="lazy"
+        />
+        <CardTitle workshopName={workshopName} id={id} />
       </div>
+      <CardText workshopShortDescription={workshopShortDescription} />
       <button className='App-Icons'>
         <Pencil width='1.5rem' />
       </button>
       <button className='App-Icons'>
-        <Close width='1.5rem' />
+        <Delete width='1.5rem' />
       </button>
     </article>
-
   )
 }
