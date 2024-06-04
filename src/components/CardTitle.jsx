@@ -1,8 +1,10 @@
-import { useState } from "react"
+// import { useState } from "react"
 
 export default function CardTitle(props) {
 
-  const [title, setTitle] = useState(props.workshopName);
+  // * Set state here first then refactor for save button
+  // const [title, setTitle] = useState(props.workshopName);
+  const { title, setTitle } = props.titleState;
 
   return (
     <>
@@ -12,7 +14,6 @@ export default function CardTitle(props) {
             type="text"
             value={title}
             onChange={(e) => {
-              console.log(e.target.value);
               setTitle(e.target.value)
             }}
           />

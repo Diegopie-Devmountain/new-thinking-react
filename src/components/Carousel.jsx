@@ -1,15 +1,20 @@
-import Glider from 'react-glider';
-import Card from './Card';
-import generateId from '../utils/generateId.js';
-import dummyData from '../data/workshops.js'
+// Dependencies
 import { useRef, useState } from 'react';
+import Glider from 'react-glider';
+// Utils
+import generateId from '../utils/generateId.js';
+// Components
+import Card from './Card';
+import { Add } from './Icons.jsx';
+// Data
+import dummyData from '../data/workshops.js'
 
 export default function Carousel() {
 
   const [cardData, setCardData] = useState(dummyData);
 
   const addCard = () => {
-    const newData = {...cardData};
+    const newData = { ...cardData };
     newData.categoryData.push({
       id: generateId(newData.categoryData),
       workshopName: 'new lorem',
@@ -21,7 +26,7 @@ export default function Carousel() {
   };
 
   const deleteCard = (id) => {
-    const newData = {...cardData};
+    const newData = { ...cardData };
 
     const index = newData.categoryData.findIndex((card) => card.id === id);
 
@@ -30,13 +35,29 @@ export default function Carousel() {
     setCardData(newData);
   };
 
+  const editCard = (index, newText) => {
+    const newData = { ...cardData };
+
+    const originalCardData = newData.categoryData[index];
+
+    // param1: og obj
+    // param2: obj of what to modify
+    const newCardData = Object.assign(
+      originalCardData,
+      newText
+    );
+
+    newData.categoryData[index] = newCardData;
+    setCardData(newData);
+  };
+
   const gliderRef = useRef(null);
   return (
     <section className='App-Glide-Container'>
-      <article>
-      <h3>{cardData.categoryName}</h3>
-      <button onClick={addCard}>Add Card</button>
-      </article>
+      <header>
+        <h3>{cardData.categoryName}</h3>
+        <button onClick={addCard}><Add width='1.5rem' /></button>
+      </header>
       <Glider
         ref={gliderRef}
         // draggable
@@ -53,17 +74,20 @@ export default function Carousel() {
           }
         ]}
       >
-        {cardData.categoryData.map((workshop => {
+        {cardData.categoryData.map((workshop, index) => {
           return (
-            <Card 
-              key={workshop.id} 
-              data={workshop} 
+            <Card
+              key={workshop.id}
+              // data={workshop}
+              // * Change this when doing the edit refactor
+              data={{...workshop, index}}
+              editCard={editCard}
               deleteCard={deleteCard}
               glider={gliderRef}
             />
 
           )
-        }))}
+        })}
 
 
       </Glider>
