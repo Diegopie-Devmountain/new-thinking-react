@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CardText from './CardText';
 import CardTitle from './CardTitle';
-import { Save, Delete, Pencil } from './Icons';
+import CardButtons from './CardButtons.jsx';
 
 export default function Card(props) {
 
@@ -41,24 +41,10 @@ export default function Card(props) {
           textState={{text, setText}}
           isEditable={isEditable} />
       </div>
-      {
-        isEditable ?
-          <button className='App-Icons' onClick={() => {
-            // * Add Edit card on refactor
-            // * Highlight that we are selecting the keys we want to update and the values we want it to have (Postgres setup)
-            props.editCard(props.data.index, {workshopShortDescription: text, workshopName: title})
-            setIsEditable(false)
-            }}>
-            <Save width='1.5rem'/>
-          </button>
-          :
-          <button onClick={() => setIsEditable(true)} className='App-Icons'>
-            <Pencil width='1.5rem' />
-          </button>
-      }
-      <button className='App-Icons' onClick={() => props.deleteCard(id)}>
-        <Delete width='1.5rem' />
-      </button>
+      <CardButtons 
+        buttonData={{ id, text, title }}
+        isEditableState={{ isEditable, setIsEditable }}
+      />
     </article>
 
   )
