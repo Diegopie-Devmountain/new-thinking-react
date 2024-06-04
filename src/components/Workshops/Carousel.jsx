@@ -2,16 +2,16 @@
 import { useRef, useState } from 'react';
 import Glider from 'react-glider';
 // Utils
-import generateId from '../utils/generateId.js';
+import generateId from '../../utils/generateId.js';
 // Components
-import Card from './Card';
-import { Add } from './Icons.jsx';
+import Card from './Card/Card.jsx';
+import { Add } from '../Icons.jsx';
 // Data
-import dummyData from '../data/workshops.js'
+// import dummyData from '../data/workshops.js'
 
-export default function Carousel() {
+export default function Carousel(props) {
 
-  const [cardData, setCardData] = useState(dummyData);
+  const [cardData, setCardData] = useState(props.data);
 
   const addCard = () => {
     const newData = { ...cardData };
@@ -53,7 +53,7 @@ export default function Carousel() {
 
   const gliderRef = useRef(null);
   return (
-    <section className='App-Glide-Container'>
+    <section className='Workshops-Glide-Container'>
       <header>
         <h3>{cardData.categoryName}</h3>
         <button onClick={addCard}><Add width='1.5rem' /></button>

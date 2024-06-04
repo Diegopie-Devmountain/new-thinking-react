@@ -1,4 +1,4 @@
-import { Save, Delete, Pencil } from './Icons.jsx';
+import { Save, Delete, Pencil } from '../../Icons.jsx';
 
 export default function CardButtons(props) {
 

@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import CardText from './CardText';
-import CardTitle from './CardTitle';
+import CardText from './CardText.jsx';
+import CardTitle from './CardTitle.jsx';
 import CardButtons from './CardButtons.jsx';
+
+import './Card.css'
 
 export default function Card(props) {
 
@@ -22,8 +24,8 @@ export default function Card(props) {
 
   return (
 
-    <article className='App-Card-Wrapper'>
-      <div className='App-Card-Body'>
+    <article className='Card-Wrapper'>
+      <div className='Card-Body'>
         <div className="text-center">
           <img
             className="App-Item-Card-Img"
