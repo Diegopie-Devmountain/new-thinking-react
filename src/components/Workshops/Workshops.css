@@ -15,12 +15,6 @@
 
 .Workshops-Category-Header h2 {
   font-size: 2.5rem;
-  text-align: center;
-}
-
-.Workshops-Category-Header img {
-  width: 11rem;
-  height: 11rem;
 }
 
 .Workshops-Category-Header p {
@@ -29,8 +23,13 @@
   text-align: center;
 }
 
+.Workshops-Category-Header img {
+  width: 11rem;
+  height: 11rem;
+}
+
 .Workshops-Glide-Container {
-  padding: 0 4rem 0 4rem;
+  padding: 0 4rem;
   margin-top: 1.5rem;
 }
 
@@ -43,9 +42,9 @@
 
 .Workshops-Glide-Container h3 {
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .Workshops-Glide-Container .glider-track {
-  padding: 2rem 0 2rem 0;
+  padding: 2rem 0;
 }

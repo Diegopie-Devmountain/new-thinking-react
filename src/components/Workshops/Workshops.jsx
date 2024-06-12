@@ -6,8 +6,12 @@ export default function Workshops({data}) {
 
   return (
     <section style={{marginTop: '2.2rem'}}>
-      <Header />
-      <Carousel data={data}/>
+      <Header 
+        categoryName={data.categoryName}
+        categoryDescription={data.categoryDescription}
+        categoryImg={data.categoryImg}
+        />
+      <Carousel cardData={data.categoryData}/>
     </section>
   )
 }

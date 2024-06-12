@@ -11,7 +11,7 @@ import { Add } from '../Icons.jsx';
 
 export default function Carousel(props) {
 
-  const [cardData, setCardData] = useState(props.data);
+  const [cardData, setCardData] = useState(props.cardData);
 
   const addCard = () => {
     const newData = { ...cardData };
@@ -51,7 +51,6 @@ export default function Carousel(props) {
     setCardData(newData);
   };
 
-  const gliderRef = useRef(null);
   return (
     <section className='Workshops-Glide-Container'>
       <header>
@@ -59,8 +58,6 @@ export default function Carousel(props) {
         <button onClick={addCard}><Add width='1.5rem' /></button>
       </header>
       <Glider
-        ref={gliderRef}
-        // draggable
         hasArrows
         hasDots
         slidesToShow={3}
@@ -74,7 +71,7 @@ export default function Carousel(props) {
           }
         ]}
       >
-        {cardData.categoryData.map((workshop, index) => {
+        {cardData.map((workshop, index) => {
           return (
             <Card
               key={workshop.id}
@@ -83,13 +80,9 @@ export default function Carousel(props) {
               data={{...workshop, index}}
               editCard={editCard}
               deleteCard={deleteCard}
-              glider={gliderRef}
             />
-
           )
         })}
-
-
       </Glider>
     </section>
   )
