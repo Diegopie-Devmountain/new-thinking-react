@@ -7,45 +7,38 @@ import './Card.css'
 
 export default function Card(props) {
 
-  const { workshopImage, workshopShortDescription, workshopName, id } = props.data;
+  const { workshopImage, workshopShortDescription, workshopName, id, index } = props.data;
 
   const [isEditable, setIsEditable] = useState(false);
-
   const [text, setText] = useState(workshopShortDescription);
-
   const [title, setTitle] = useState(workshopName);
 
-
-  // useEffect(()=>{
-  //   // Glider pagination feels like it wants to work or not, this is supposed to fix it but doesn't
-  //   console.log(props.glider.current.updateControls);
-  //   props.glider.current.updateControls()
-  // }, [])
-
   return (
-
     <article className='Card-Wrapper'>
       <div className='Card-Body'>
-        <div className="text-center">
-          <img
-            className="App-Item-Card-Img"
-            src={workshopImage}
-            alt="lorem picusm placeholder" loading="lazy"
-          />
-          <CardTitle 
+        <img
+          src={workshopImage}
+          alt={title + "Image"} loading="lazy"
+        />
+        <CardTitle
           // workshopName={workshopName} 
-          titleState={{title, setTitle}}
-          id={id} 
+          titleState={{ title, setTitle }}
+          id={id}
           isEditable={isEditable} />
-        </div>
-        <CardText 
+        <CardText
           // workshopShortDescription={workshopShortDescription} 
-          textState={{text, setText}}
+          textState={{ text, setText }}
           isEditable={isEditable} />
       </div>
-      <CardButtons 
-        buttonData={{ id, text, title }}
+      <CardButtons
+        buttonData={{
+          id,
+          index,
+          workshopName: title, workshopShortDescription: text
+        }}
         isEditableState={{ isEditable, setIsEditable }}
+        deleteCard={props.deleteCard}
+        editCard={props.editCard}
       />
     </article>
 
