@@ -32,7 +32,9 @@ The back end team will serve invoice data through a JSON API. They’ve given yo
 
 ```js
 const topicData = {
-  categoryName: "Category 01",
+  categoryName: "Category 01 Title",
+  categoryDescription: "categoryDescription lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptas ea quas. Blanditiis et cumque sequi hic reiciendis earum at, quos quae natus rerum recusandae nesciunt cupiditate deserunt aliquid laboriosam tenetur neque nulla. Ipsa reiciendis odit similique temporibus nulla rerum eaque exercitationem vitae dolorum sapiente. Voluptatibus id labore sunt itaque.",
+  categoryImg: "https://picsum.photos/seed/picsum/300/300?grayscale",
   categoryData: [
     {
       id: 0,
@@ -129,6 +131,10 @@ const topicData = {
 
 export default topicData;
 
+
+
+export default topicData;
+
 ```
 
 The design team has provided a mockup of the UI design:
@@ -204,3 +210,5 @@ In React, a ***static*** app only renders UI without adding interactivity. Bui
 | Pencil | [Link](https://www.flaticon.com/free-icon/pencil_1828911) |
 | Close | [Link](https://www.flaticon.com/free-icon/delete-button_11240035?term=close+button&page=1&position=14&origin=search&related_id=11240035) |
 | SVG | [Link](https://heroicons.com/) |
+
+note for diego, sync branches 01 - 03 to changes made on 04 then create docs
