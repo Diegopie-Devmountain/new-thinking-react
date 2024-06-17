@@ -1,5 +1,5 @@
 // Dependencies
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Glider from 'react-glider';
 // Utils
 import generateId from '../../utils/generateId.js';

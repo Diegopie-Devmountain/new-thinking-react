@@ -10,13 +10,10 @@ export default function Card(props) {
   const { workshopImage, workshopShortDescription, workshopName, id, index } = props.data;
 
   const [isEditable, setIsEditable] = useState(false);
-
   const [text, setText] = useState(workshopShortDescription);
-
   const [title, setTitle] = useState(workshopName);
 
   return (
-
     <article className='Card-Wrapper'>
       <div className='Card-Body'>
         <img
